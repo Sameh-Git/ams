@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+
+<head>
+
+	<meta charset="UTF-8" />
+	<title>AMS Home</title>
+	<link rel="stylesheet" type="text/css" th:href="@{css/main.css}" />
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+	<h3>Formation : <span th:text="${lf}"></span></h3>
+	<h4>Formateur : <span th:text="${coach}"></span></h4>
+	<a  class="btn btn-primary" style="margin-bottom:20px" th:href="@{/add}">Ajouter Candidat</a>
+
+	<table class="table table-striped" align="center" border=1>
+		<tr>
+			<th>ID</th>
+			<th>Nom</th>
+			<th>Email</th>
+			<th>Téléphone</th>
+			<th>Détails</th>
+			<th>Supprimer</th>
+		</tr>
+		<tr th:each="c : ${tab}">
+			<td th:text="${c.id}"></td>
+			<td th:text="${c.nom}"></td>
+			<td th:text="${c.email}"></td>
+			<td th:text="${c.telephone}"></td>
+			<td><a th:href="@{/show/{idc}(idc=${c.id})}" class="btn btn-primary">Show</a></td>
+			<td><a th:href="@{/delete/{idc}(idc=${c.id})}" class="btn btn-danger">Delete</a></td>
+		</tr>
+		<caption > Liste des candidats</caption>
+
+
+	</table>
+</body>
+
+</html>
