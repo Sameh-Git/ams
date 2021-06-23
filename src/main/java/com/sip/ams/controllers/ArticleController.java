@@ -28,7 +28,8 @@ import com.sip.ams.repositories.ProviderRepository;
 @Controller
 @RequestMapping("/article/")
 public class ArticleController {
-	public static String uploadDirectory = System.getProperty("user.dir") + "/src/main/resources/static/images/articles";
+	public static String uploadDirectory = System.getProperty("user.dir")
+			+ "/src/main/resources/static/images/articles";
 
 	private final ArticleRepository articleRepository;
 	private final ProviderRepository providerRepository;
@@ -50,8 +51,6 @@ public class ArticleController {
 		return "article/listArticles";
 	}
 
-	
-	
 	@GetMapping("add")
 	public String showAddArticleForm(Article article, Model model) {
 
@@ -60,8 +59,6 @@ public class ArticleController {
 		return "article/addArticle";
 	}
 
-	
-	
 	@PostMapping("add")
 	// @ResponseBody
 	public String addArticle(@Valid Article article, BindingResult result,
@@ -74,7 +71,7 @@ public class ArticleController {
 
 			return "article/addArticle";
 		}
-		//upload 
+		// upload
 		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 
@@ -89,12 +86,9 @@ public class ArticleController {
 		//
 		articleRepository.save(article);
 		return "redirect:list";
-		// return article.getLabel() + " " +article.getPrice() + " " + p.toString();
+
 	}
 
-	
-	
-	
 	@GetMapping("edit/{id}")
 	public String showArticleFormToUpdate(@PathVariable("id") long id, Model model) {
 		Article article = articleRepository.findById(id)
@@ -115,19 +109,25 @@ public class ArticleController {
 		Provider provider = providerRepository.findById(p)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + p));
 		article.setProvider(provider);
-		//upload 
-				StringBuilder fileName = new StringBuilder();
-				MultipartFile file = files[0];
+	/*	Path fileNameAndPath1 = Paths.get(uploadDirectory, article.getPicture());
+		try {
+			Files.delete(fileNameAndPath1);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
+		// upload
+		StringBuilder fileName = new StringBuilder();
+		MultipartFile file = files[0];
 
-				Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
-				fileName.append(file.getOriginalFilename());
-				try {
-					Files.write(fileNameAndPath, file.getBytes());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				article.setPicture(fileName.toString());
-				//
+		Path fileNameAndPath2 = Paths.get(uploadDirectory, file.getOriginalFilename());
+		fileName.append(file.getOriginalFilename());
+		try {
+			Files.write(fileNameAndPath2, file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		article.setPicture(fileName.toString());
+		//
 		articleRepository.save(article);
 		model.addAttribute("articles", articleRepository.findAll());
 		return "article/listArticles";
@@ -137,12 +137,14 @@ public class ArticleController {
 	public String deleteArticle(@PathVariable("id") long id, Model model) {
 		Article article = articleRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + id));
+		// delete picture
 		Path fileNameAndPath = Paths.get(uploadDirectory, article.getPicture());
 		try {
 			Files.delete(fileNameAndPath);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		//
 		articleRepository.delete(article);
 		model.addAttribute("articles", articleRepository.findAll());
 

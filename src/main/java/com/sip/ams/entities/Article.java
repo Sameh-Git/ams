@@ -22,7 +22,9 @@ public class Article {
 	private String label;
 	@Column(name = "price")
 	private float price;
+
 	@Column(name = "picture")
+
 	private String picture;
 
 	public Article() {

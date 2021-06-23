@@ -1,4 +1,5 @@
 package com.sip.ams.controllers;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,12 +21,13 @@ import com.sip.ams.repositories.ProviderRepository;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.web.multipart.MultipartFile;
+
 @Controller
 @RequestMapping("/provider/")
 public class ProviderController {
-	
-	public static String uploadDirectory =
-			System.getProperty("user.dir")+"/src/main/resources/static/images/providers";
+
+	public static String uploadDirectory = System.getProperty("user.dir")
+			+ "/src/main/resources/static/images/providers";
 
 	private final ProviderRepository providerRepository;
 
@@ -55,22 +57,23 @@ public class ProviderController {
 	}
 
 	@PostMapping("add")
-	public String addProvider(@Valid Provider provider, BindingResult result,@RequestParam("files") MultipartFile[] files) {
+	public String addProvider(@Valid Provider provider, BindingResult result,
+			@RequestParam("files") MultipartFile[] files) {
 		if (result.hasErrors()) {
 			return "provider/addProvider";
 		}
-		
+
 		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 		Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 		fileName.append(file.getOriginalFilename());
 		try {
-		Files.write(fileNameAndPath, file.getBytes());
+			Files.write(fileNameAndPath, file.getBytes());
 		} catch (IOException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		provider.setProviderlogo(fileName.toString());
-		
+
 		providerRepository.save(provider);
 		return "redirect:list";
 	}
@@ -84,16 +87,17 @@ public class ProviderController {
 	}
 
 	@PostMapping("update")
-	public String updateProvider(@Valid Provider provider, BindingResult result, Model model,@RequestParam("files") MultipartFile[] files) {
-		
+	public String updateProvider(@Valid Provider provider, BindingResult result, Model model,
+			@RequestParam("files") MultipartFile[] files) {
+
 		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 		Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 		fileName.append(file.getOriginalFilename());
 		try {
-		Files.write(fileNameAndPath, file.getBytes());
+			Files.write(fileNameAndPath, file.getBytes());
 		} catch (IOException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		provider.setProviderlogo(fileName.toString());
 		providerRepository.save(provider);
@@ -102,11 +106,11 @@ public class ProviderController {
 
 	@GetMapping("delete/{id}")
 	public String deleteProvider(@PathVariable("id") long id, Model model) {
-	
+
 		Provider provider = providerRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid provider Id:" + id));
 		System.out.println("suite du programme...");
-		Path fileNameAndPath = Paths.get(uploadDirectory,provider.getProviderlogo() );
+		Path fileNameAndPath = Paths.get(uploadDirectory, provider.getProviderlogo());
 		try {
 			Files.delete(fileNameAndPath);
 		} catch (IOException e) {

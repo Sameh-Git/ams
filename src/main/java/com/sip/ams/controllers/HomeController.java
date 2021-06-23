@@ -33,7 +33,7 @@ public class HomeController {
 	public String home() {
 
 		// return "<h2>Bienvenue au BootCamp</h2>";
-		return "home/index";
+		return "candidat/index";
 	}
 
 	@RequestMapping("/candidats")
@@ -50,13 +50,13 @@ public class HomeController {
 		 * Candidat tab[] = new Candidat[3]; tab[0] = c1; tab[1] = c2; tab[2] = c3;
 		 */
 		m.addAttribute("tab", lc);
-		return "home/Candidats";
+		return "candidat/Candidats";
 	}
 
 	@GetMapping("/add")
 	// @ResponseBody
 	public String addCandidate() {
-		return "home/add";
+		return "candidat/add";
 	}
 
 	@PostMapping("/add")
