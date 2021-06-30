@@ -14,9 +14,9 @@ rap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPk
 </head>
 
 <body>
-	<div class="container my-5">
+	<div class="container my-5" align="center">
 		<h2> Update Provider</h2>
-		<div class="card col-md-6" >
+		<div class="card col-md-6" align="left" >
 			<div class="card-body">
 				<div class="col-md-16">
 					<form th:action="@{/provider/update}" th:object="${provider}" method="post" enctype="multipart/form-data">
@@ -49,7 +49,7 @@ rap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPk
 </div>
 
 
-<div class="form-group col-md-12" align="center">
+<div class="form-group col-md-12" align="center" style="padding-top: 10px;">
 <input type="submit" class="btn
 btn-primary" value="Update Provider">
 <a th:href="@{/provider/list}"> <input type="button" class="btn btn-primary"

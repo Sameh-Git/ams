@@ -34,13 +34,13 @@ public class RoleController {
 
 	@GetMapping("add")
 	public String showAddRoleForm() {
-//m.addAttribute("Role",new Role("Admin"));
+
 		return "role/addRole";
 	}
 
 	@PostMapping("add")
 	public String addRole(@RequestParam("role") String role) {
-		System.out.println(role);
+		
 		Role r = new Role(role);
 		Role rSaved = roleRepository.save(r);
 		System.out.println("role = " + rSaved);

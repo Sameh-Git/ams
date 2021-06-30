@@ -7555,10 +7555,11 @@ sub {
   color: #abafb3; }
 
 .footer {
-  padding-left: 15.1875rem;
+  padding-right: 14.1875rem;
+   padding-left: 14.1875rem;
   background-color: #fff; }
   .footer .copyright {
-    padding: 0.9375rem;
+    padding: 0.7rem;
     background: white; }
     .footer .copyright p {
       text-align: center;

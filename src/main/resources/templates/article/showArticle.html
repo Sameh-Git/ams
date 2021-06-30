@@ -13,34 +13,34 @@ MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="a
 </head>
 
 <body>
-	<div class="container my-5">
+	<div class="container my-5" align="center">
 		<h3 align="center">Article details</h3>
-		<div class="card">
+		<div class="card col-md-8" align="left" >
 			<div class="card-body">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<form action="#" method="">
 						<div class="row">
 							<div class="form-group col-md-6">
-								<label for="label" class="col-formlabel">ID</label>
+								<label for="label" class="col-formlabel"><b>ID</b></label>
 								<p th:text="${article.id}">Id</p>
 							</div>
 							<div class="form-group col-md-6">
-								<label for="label" class="col-formlabel">Label</label>
+								<label for="label" class="col-formlabel"><b>Label</b></label>
 								<p th:text="${article.label}">Label</p>
 							</div>
 							<div class="form-group col-md-6">
-								<label for="label" class="col-formlabel">Price</label>
+								<label for="label" class="col-formlabel"><b>Price</b></label>
 								<p th:text="${article.price}">Price</p>
 							</div>
 							<div class="form-group col-md-6">
-								<label for="label" class="col-formlabel">Provider</label>
+								<label for="label" class="col-formlabel"><b>Provider</b></label>
 								<p th:text="${article.provider.name}">Provider</p>
 							</div>
 							<div class="form-group col-md-6">
-								<label for="label" class="col-formlabel">Picture</label>
-								<img alt="Image" th:src="@{'/images/articles/'+${article.picture}}" width="250" height="250" />
-							</div>
-							<div class="form-group col-md-8">
+								<label for="label" class="col-formlabel"><b>Picture</b></label>
+							<div align="center">		<img alt="Image" th:src="@{'/images/articles/'+${article.picture}}" width="250" height="250" />
+							</div></div>
+							<div class="form-group col-md-12" align="center">
 								<a th:href="@{/article/list}"> <input type="button" class="btn btn-primary"
 										value="return to Article list"></a>
 							</div>

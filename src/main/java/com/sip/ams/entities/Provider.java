@@ -25,7 +25,7 @@ public class Provider {
 	@NotBlank(message = "Email is mandatory")
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "providerlogo")
 	private String providerlogo;
 
@@ -40,11 +40,11 @@ public class Provider {
 	public Provider() {
 	}
 
-	public Provider(String name, String address, String email,String providerlogo) {
+	public Provider(String name, String address, String email, String providerlogo) {
 		this.name = name;
 		this.address = address;
 		this.email = email;
-		this.providerlogo= providerlogo;
+		this.providerlogo = providerlogo;
 	}
 
 	public void setId(long id) {
@@ -78,14 +78,16 @@ public class Provider {
 	public String getAddress() {
 		return address;
 	}
-	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "provider")
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "provider")
 	private List<Article> articles;
+
 	public List<Article> getArticles() {
-	return articles;
+		return articles;
 	}
+
 	public void setArticles(List<Article> articles) {
-	this.articles = articles;
+		this.articles = articles;
 	}
 
 }

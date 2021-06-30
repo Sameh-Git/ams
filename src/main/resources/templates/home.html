@@ -2,21 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>AMS-Dashboard</title>
+ <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Pignose Calender -->
+    <link href="./plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="./plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="./plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <!-- Custom Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
-<body>
-<div th:replace="fragments/header :: header"/>
-<div class="container">
-<div class="starter-template">
-<h1>Welcome to our Article Managment System Dashboard</h1>
-<h2>1. Visit our Providers, You must have ADMIN role <a
-th:href="@{/provider/list}">Providers</a></h2>
-<h2>2. Visit our Article, You must have USER or ADMIN roles<a
-th:href="@{/article/list}">Articles</a></h2>
+<body  >
+   
+            <div class="card" align="right" style="padding-right: 0px;">
+<div th:replace="fragments/header :: header"/></div>
+
+
+<div class="container " style="padding:50px;padding-bottom:220px">
+
+             <div class="card" >                <div class="card-body" >
+                           
+                                 
+<h1 align="center">Welcome to our Article Managment System Dashboard</h1>
+<div  style="padding:40px">
+<h3>1. Visit our Providers, You must have ADMIN or SUPERADMIN roles <a
+th:href="@{/provider/list}">  Providers</a></h3>
+<h3>2. Visit our Article, You must have USER or SUPERADMIN roles<a
+th:href="@{/article/list}">  Articles</a></h3>
 <!-- h2>3. Visit <a th:href="@{/about}">Normal page</a></h2-->
 </div>
-</div>
-<!-- /.container -->
-<div th:replace="fragments/footer::footer"/>
+</div></div></div></div>
+<!-- /.container    <div class="card" align="right">  -->
+ <div class="footer" align="center" style="padding-top:0px;padding-bottom:0px">
+            <div class="copyright" align="center">
+<div th:replace="fragments/footer::footer" /></div></div>
 </body>
 </html>

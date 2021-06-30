@@ -14,37 +14,36 @@ MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="a
 </head>
 
 <body>
-	<div class="container my-5">
+	<div class="container my-5" align="center">
 		<h3>Update Provider</h3>
-		<div class="card">
+		<div class="card col-md-8" >
 			<div class="card-body">
-				<div class="col-md-8">
+				<div class="col-md-12" align="left">
 					<form action="#" th:action="@{/provider/update}" th:object="${provider}" method="post" enctype="multipart/form-data">
 						<div class="row">
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-8">
 								<input type="hidden" th:field="*{id}" />
-								<label for="name" class="col-formlabel">Name</label> <input type="text"
+								<label for="name" class="col-formlabel"><b>Name</b></label> <input type="text"
 									th:field="*{name}" class="form-control" id="name" placeholder="Name">
 								<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
 </div>
 <div class="form-group col-md-8">
-<label for="email" class="col-form-label">Email</label> <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email"> 
+<label for="email" class="col-form-label"><b>Email</b></label> <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email"> 
 <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
 </div>
 <div class="form-group col-md-8">
-<label for="address" class="col
-form-label">Address</label> <input type="text"  th:field="*{address}" class="form-control" id="address" placeholder="address">
+<label for="address" class="col-form-label"><b>Address</b></label> <input type="text"  th:field="*{address}" class="form-control" id="address" placeholder="address">
  <span th:if="${#fields.hasErrors('address')}" th:errors="address" class="text-danger"></span>
 </div>
 
 		<div class="form-group col-md-8">
-<label for="price" class="col-formlabel">Old Logo</label>
-<img alt="Image" th:src="@{'/images/providers/'+${provider.providerlogo}}" width="80" height="50" />
+<label for="price" class="col-formlabel"><b>Old Logo</b></label>
+  <img alt="Image" th:src="@{'/images/providers/'+${provider.providerlogo}}" width="80" height="50" />
 </div>
 
 <div class="form-group col-md-8">
-<label for="logo" class="col-formlabel">New Logo</label>
-<input  type="file"   class="form-control" name="files"  id="logo" placeholder="logo" multiple>
+<label for="logo" class="col-formlabel"><b>New Logo</b></label>
+    <input  type="file"   class="form-control" name="files"  id="logo" placeholder="logo" multiple>
 </div>
 
 <div class="container my-2">
@@ -78,10 +77,11 @@ fa-user-plus ml-2"> List of Articles</i>
 </div>
 </div>
 </div>
-<div class="form-group col-md-8">
+<div class="form-group col-md-12" align="center" style="padding-top: 10px;">
+
 <input type="submit" class="btn btn-primary" value="Update Provider">
-<a th:href="@{/provider/list}"> <input type="button" class="btn btn-primary"
-										value="return to Provider list"></a>
+
+<a th:href="@{/provider/list}"> <input type="button" class="btn btn-primary"   value="return to Provider list"></a>
 </div>
 </div>
 </form>

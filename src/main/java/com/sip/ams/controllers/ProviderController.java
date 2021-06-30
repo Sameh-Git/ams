@@ -62,7 +62,7 @@ public class ProviderController {
 		if (result.hasErrors()) {
 			return "provider/addProvider";
 		}
-
+		// UPLOAD
 		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 		Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
@@ -73,7 +73,7 @@ public class ProviderController {
 			e.printStackTrace();
 		}
 		provider.setProviderlogo(fileName.toString());
-
+		//
 		providerRepository.save(provider);
 		return "redirect:list";
 	}
@@ -109,18 +109,18 @@ public class ProviderController {
 
 		Provider provider = providerRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid provider Id:" + id));
-		System.out.println("suite du programme...");
+		
+		// DELETE LOGO
 		Path fileNameAndPath = Paths.get(uploadDirectory, provider.getProviderlogo());
 		try {
 			Files.delete(fileNameAndPath);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		//
+
 		providerRepository.delete(provider);
-		/*
-		 * model.addAttribute("providers", providerRepository.findAll()); return
-		 * "provider/listProviders";
-		 */
+
 		return "redirect:../list";
 	}
 
@@ -132,9 +132,7 @@ public class ProviderController {
 
 		if (articles.size() == 0)
 			articles = null;
-		/*
-		 * for (Article a : articles) System.out.println("Article = " + a.getLabel());
-		 */
+		
 		model.addAttribute("articles", articles);
 		model.addAttribute("provider", provider);
 		return "provider/showProvider";

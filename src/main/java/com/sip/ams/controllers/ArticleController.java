@@ -42,7 +42,7 @@ public class ArticleController {
 
 	@GetMapping("list")
 	public String listArticles(Model model) {
-//model.addAttribute("articles", null);
+
 		List<Article> la = (List<Article>) articleRepository.findAll();
 		if (la.size() == 0)
 			la = null;
@@ -109,12 +109,11 @@ public class ArticleController {
 		Provider provider = providerRepository.findById(p)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid article Id:" + p));
 		article.setProvider(provider);
-	/*	Path fileNameAndPath1 = Paths.get(uploadDirectory, article.getPicture());
-		try {
-			Files.delete(fileNameAndPath1);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
+		/*
+		 * Path fileNameAndPath1 = Paths.get(uploadDirectory, article.getPicture()); try
+		 * { Files.delete(fileNameAndPath1); } catch (IOException e) {
+		 * e.printStackTrace(); }
+		 */
 		// upload
 		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
