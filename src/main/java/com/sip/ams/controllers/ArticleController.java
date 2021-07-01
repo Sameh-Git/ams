@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 //import org.springframework.web.bind.annotation.ResponseBody;
 import com.sip.ams.entities.Article;
 import com.sip.ams.entities.Provider;
+import com.sip.ams.entities.User;
 import com.sip.ams.repositories.ArticleRepository;
 import com.sip.ams.repositories.ProviderRepository;
 
@@ -49,6 +51,7 @@ public class ArticleController {
 
 		model.addAttribute("articles", la);
 		return "article/listArticles";
+		
 	}
 
 	@GetMapping("add")

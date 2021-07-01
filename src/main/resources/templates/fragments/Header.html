@@ -1,14 +1,27 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
 </head>
+
 <body>
-<div th:fragment="header">
-<div class="container" align="right">
-<span align="right">Logged user: <span sec:authentication="name"></span>
-<a th:href="@{/logout}">   Sign Out</a>
-</div>
-</div>
+	<div th:fragment="header">
+		<div class="container" align="right">
+			<span align="right">Logged user:&nbsp; <span style="color: #7660C2;" sec:authentication="name"></span>
+				
+				<a th:href="@{/logout}"> <img th:src="@{/images/logout2.png}" class="imgresponsive center-block"
+						width="20" height="18" alt="Logo" />
+
+				</a>
+
+		
+		</div>
+	</div>
+<script src="plugins/common/common.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/gleek.js"></script>
+    <script src="js/styleSwitcher.js"></script>
 </body>
+
 </html>

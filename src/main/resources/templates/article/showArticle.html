@@ -10,13 +10,23 @@
 MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-
 5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link th:href="@{css/style.css}" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="h-100" style="background-color:#F4F3F7;">
+	<div class="card" align="right" style="padding-left:200px;">
+		<div th:replace="fragments/header :: header" />
+	</div>
 	<div class="container my-5" align="center">
-		<h3 align="center">Article details</h3>
+		
 		<div class="card col-md-8" align="left" >
 			<div class="card-body">
+			<h2 align="center" style="padding-bottom:20px;padding-top:8px;color:#101092;">Article details</h2>
+			
+			
 				<div class="col-md-12">
 					<form action="#" method="">
 						<div class="row">
@@ -36,7 +46,7 @@ MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="a
 								<label for="label" class="col-formlabel"><b>Provider</b></label>
 								<p th:text="${article.provider.name}">Provider</p>
 							</div>
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-12">
 								<label for="label" class="col-formlabel"><b>Picture</b></label>
 							<div align="center">		<img alt="Image" th:src="@{'/images/articles/'+${article.picture}}" width="250" height="250" />
 							</div></div>
@@ -50,6 +60,10 @@ MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="a
 			</div>
 		</div>
 	</div>
+	
+	<div class="card" align="center" style="padding-top:0px;padding-bottom:0px">
+            <div class="copyright" align="center">
+<div th:replace="fragments/footer::footer" /></div></div>
 </body>
 
 </html>

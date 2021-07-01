@@ -10,8 +10,8 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <!-- this is footer -->
 © 2019 SIP
 <span sec:authorize="isAuthenticated()">
-| Logged user: <span sec:authentication="name"></span> |
-Roles: <span sec:authentication="principal.authorities"></span>
+| Logged user: <span style="color: #7660C2;" sec:authentication="name"></span> |
+Roles: <span style="color: #7660C2;" sec:authentication="principal.authorities"></span>
 </span>
 </footer>
 </div>
