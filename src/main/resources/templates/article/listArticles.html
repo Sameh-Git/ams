@@ -13,6 +13,47 @@ MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="a
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<link th:href="@{css/style.css}" rel="stylesheet" type="text/css">
+	
+	<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
 </head>
 <body class="h-100" style="background-color:#F4F3F7;"  >
 <div class="card" align="right" style="padding-left:200px;">
@@ -32,11 +73,16 @@ MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="a
                        
                        
 <div th:switch="${articles}" class="container my-5">
-<p class="my-5" align="right">
+
+<div class="my-5" align="right">
+
 <a th:href="@{'/article/add/'}" class="btn btn-primary"><img th:src="@{/images/add.png}"
 										 width="30" height="30" alt="Logo" />  Add Article</a>
-</p>
+</div>
 <div class="col-md-10">
+<div align="right" style="padding-bottom:5px;"><form class="form-valide" th:action="@{/article/search/}">
+<input type="text" name="search" id="search" placeholder="Search.." />
+ <button type="submit"  value="search"  ><i class="fa fa-search"></i> </button></form></div>
 <h2 th:case="null">No Articles yet!</h2>
 <div th:case="*">
   <div class="table-responsive">

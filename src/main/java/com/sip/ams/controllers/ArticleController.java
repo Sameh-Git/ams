@@ -160,4 +160,18 @@ public class ArticleController {
 		model.addAttribute("article", article);
 		return "article/showArticle";
 	}
+	
+	
+	@GetMapping("search")
+	public String findArticles(@RequestParam("search") String label,Model model) {
+		List<Article> articles = (List<Article>) articleRepository.findArticlesByLabel(label);
+		
+		if (articles.size() == 0)
+			articles = null;
+
+		model.addAttribute("articles", articles);
+		model.addAttribute("label", label);
+		return "article/searchArticles";
+		
+	}
 }
