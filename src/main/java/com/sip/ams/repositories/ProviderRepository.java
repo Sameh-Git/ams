@@ -13,4 +13,7 @@ public interface ProviderRepository extends CrudRepository<Provider, Long> {
 	
 	@Query("FROM Article a WHERE a.provider.id = ?1")
 	List<Article> findArticlesByProvider(long id);
+	
+	@Query("FROM Provider p WHERE p.name like %:name% ")
+	List<Provider> findProviderByName(String name);
 }

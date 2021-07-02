@@ -137,4 +137,17 @@ public class ProviderController {
 		model.addAttribute("provider", provider);
 		return "provider/showProvider";
 	}
+	
+	@GetMapping("search")
+	public String findProviders(@RequestParam("search") String name,Model model) {
+		List<Provider> providers = (List<Provider>) providerRepository.findProviderByName(name);
+		
+		if (providers.size() == 0)
+			providers = null;
+
+		model.addAttribute("providers", providers);
+		model.addAttribute("name", name);
+		return "provider/searchProviders";
+		
+	}
 }
