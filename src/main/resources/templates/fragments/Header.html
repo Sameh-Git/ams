@@ -2,26 +2,41 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
+
+</style>
 </head>
 
 <body>
 	<div th:fragment="header">
 		<div class="container" align="right">
 			<span align="right">Logged user:&nbsp; <span style="color: #7660C2;" sec:authentication="name"></span>
-				
-				<a th:href="@{/logout}"> <img th:src="@{/images/logout2.png}" class="imgresponsive center-block"
-						width="20" height="18" alt="Logo" />
+				&nbsp;&nbsp;
+			<div class="dropdown" style="float:right;padding-right:0px" >
+ 
+  	
+				 <img th:src="@{/images/logout.png}" class="dropbtn"
+						width="17" height="18" alt="Logo" />
+						
+						
 
-				</a>
+				
+  <div class="dropdown-content">
+    <a th:href="@{/logout}"><span>Logout<img th:src="@{/images/key.png}" width="16" height="18"/> </span></a>
+   
+  </div>
+</div>
+		
+
+
+
 
 		
 		</div>
+
+
+
 	</div>
-<script src="plugins/common/common.min.js"></script>
-    <script src="js/custom.min.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/gleek.js"></script>
-    <script src="js/styleSwitcher.js"></script>
+ 
 </body>
 
 </html>

@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./plugins/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="./plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link th:href="@{css/style.css}" rel="stylesheet">
+    <link th:href="@{css/main.css}" rel="stylesheet">
 <style>
 
 a {
@@ -24,7 +25,11 @@ a {
    }
 
 
+
+
 </style>
+
+
 </head>
 <body  style="background-color:#F4F3F7;" >
    
@@ -68,9 +73,12 @@ th:href="@{/article/list}">  Articles</a></h2>
 </div></div></div></div>
                 
                     </div>
+                    
+     
 <!-- /.container    <div class="card" align="right">  -->
  <div class="footer" align="center" style="padding-top:0px;padding-bottom:0px">
             <div class="copyright" align="center">
 <div th:replace="fragments/footer::footer" /></div></div>
+
 </body>
 </html>
