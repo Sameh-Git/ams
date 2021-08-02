@@ -1,0 +1,37 @@
+
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Map</title>
+ <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+
+	
+	<style>
+			
+</style>
+</head>
+<body class="h-100"  >
+
+   
+<div th:replace="fragments/header :: header" />
+	</div>
+	<div th:replace="fragments/dashboard :: nav" />
+	</div>
+	
+        <div class="card-body  col-md-12" align="center">
+            
+<div  align="center" style="padding-top:0px ;padding-left:250px" >
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55805849.56437315!2d36.62681057667076!3d31.38328908882285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2stn!4v1627632201122!5m2!1sen!2stn" 
+    width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy" align="center"></iframe>
+
+
+		</div>
+	</div>
+		<footer th:replace="fragments/footer::footer" /></footer></div>
+</body>
+
+</html>

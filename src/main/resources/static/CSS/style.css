@@ -119,7 +119,7 @@ body {
   line-height: 1.5;
   color: #76838f;
   text-align: left;
-  background-color: #F3F3F9; }
+  background-color:rgb(240, 243, 255) }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -1231,7 +1231,7 @@ pre {
   border: 0; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05); }
+  background-color: rgb(240, 243, 255); }
 
 .table-hover tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.075); }
@@ -7680,7 +7680,7 @@ sub {
   z-index: 1;
   position: relative;
   padding: 0 0.9375rem;
-  background: #fff;
+  background: 	rgba(86, 123, 184, 0.678);
   margin-left: 15.1875rem;
   transition: all .2s ease; }
   .header .header-content {
@@ -8183,7 +8183,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
       .nk-sidebar .metismenu > li:hover span, .nk-sidebar .metismenu > li:focus span, .nk-sidebar .metismenu > li.active span {
         color: #464a53; }
       .nk-sidebar .metismenu > li:hover > a {
-        background: #F3F1FA;
+        background: rgb(194, 208, 231);
         color: #7571f9; }
       .nk-sidebar .metismenu > li.active > a {
         background: #F3F1FA;

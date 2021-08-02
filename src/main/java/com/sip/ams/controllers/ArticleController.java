@@ -128,6 +128,7 @@ public class ArticleController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		article.setPicture(fileName.toString());
 		//
 		articleRepository.save(article);

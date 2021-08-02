@@ -1,5 +1,6 @@
 package com.sip.ams.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -90,6 +91,9 @@ public class ProviderController {
 	public String updateProvider(@Valid Provider provider, BindingResult result, Model model,
 			@RequestParam("files") MultipartFile[] files) {
 
+
+	
+//Step 2 upload Image
 		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 		Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
@@ -100,6 +104,7 @@ public class ProviderController {
 			e.printStackTrace();
 		}
 		provider.setProviderlogo(fileName.toString());
+		// end step 2
 		providerRepository.save(provider);
 		return "redirect:list";
 	}
@@ -109,7 +114,7 @@ public class ProviderController {
 
 		Provider provider = providerRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("Invalid provider Id:" + id));
-		
+
 		// DELETE LOGO
 		Path fileNameAndPath = Paths.get(uploadDirectory, provider.getProviderlogo());
 		try {
@@ -132,22 +137,22 @@ public class ProviderController {
 
 		if (articles.size() == 0)
 			articles = null;
-		
+
 		model.addAttribute("articles", articles);
 		model.addAttribute("provider", provider);
 		return "provider/showProvider";
 	}
-	
+
 	@GetMapping("search")
-	public String findProviders(@RequestParam("search") String name,Model model) {
+	public String findProviders(@RequestParam("search") String name, Model model) {
 		List<Provider> providers = (List<Provider>) providerRepository.findProviderByName(name);
-		
+
 		if (providers.size() == 0)
 			providers = null;
 
 		model.addAttribute("providers", providers);
 		model.addAttribute("name", name);
 		return "provider/searchProviders";
-		
+
 	}
 }

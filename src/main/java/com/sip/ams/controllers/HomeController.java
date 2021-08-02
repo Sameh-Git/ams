@@ -28,6 +28,13 @@ public class HomeController {
 		lc.add(c3);
 	}
 
+	@RequestMapping("/map")
+	// @ResponseBody
+	public String map() {
+
+		// return "<h2>Bienvenue au BootCamp</h2>";
+		return "/map";
+	}
 	@RequestMapping("/index")
 	// @ResponseBody
 	public String home() {

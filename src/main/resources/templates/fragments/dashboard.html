@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+
+</head>
+
+<body>
+	<div th:fragment="nav">
+<div class="nk-sidebar"  style="height: 100%;">           
+  <div class="nk-nav-scroll">
+      <ul class="metismenu" id="menu" style="padding-bottom: 200px;">
+          <li class="nav-label">Dashboard</li>
+           <li>
+              <a  th:href="@{'/home'}" class="h">
+                <img th:src="@{/images/home.png}" width="20" height="20"/>&nbsp;<span class="nav-text">Home Page</span>
+              </a>
+             
+          </li>
+           <li>
+            <a  th:href="@{/article/list}" >
+              <img th:src="@{/images/list2.png}" width="20" height="20"/>&nbsp;<span class="nav-text">List Articles</span>
+            </a>
+           
+        </li>
+          <li>
+              <a  th:href="@{/provider/list}" class="h">
+                <img th:src="@{/images/list.png}" width="20" height="20"/>&nbsp;<span class="nav-text">List Providers</span>
+              </a>
+             
+          </li>
+         
+          <li >
+            <a th:href="@{/accounts/list}" >
+              <img th:src="@{/images/users.png}" width="18" height="18"/>&nbsp; <span class="nav-text">List Users</span>
+            </a>
+           
+        </li>
+
+        <li>
+          <a  th:href="@{/role/list}" >
+            <img th:src="@{/images/role.png}" width="16" height="18"/>&nbsp; <span class="nav-text">List Roles</span>
+          </a>
+         
+      </li>
+        <li style="padding-bottom: 400px;">
+          <a  th:href="@{/map}" >
+            <img th:src="@{/images/map2.png}" width="16" height="18"/>&nbsp; <span class="nav-text">Map</span>
+          </a>
+         
+      </li>
+      </ul>
+  </div>
+</div>  
+
+</div>
+
+
+</body>
+
+</html>
