@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/").permitAll() // accès pour tous users
 				.antMatchers("/login").permitAll() // accès pour tous users
 				.antMatchers("/registration").permitAll() // accès pour tous users
-				.antMatchers("/role/**").hasAuthority("Superadmin").antMatchers("/accounts/**").hasAuthority("Superadmin")
+				.antMatchers("/role/**").permitAll().antMatchers("/accounts/**").permitAll()
 				//.antMatchers("/provider/**").permitAll().antMatchers("/article/**").permitAll().antMatchers("/home/**").permitAll()
 				
 				.antMatchers("/provider/**").hasAnyAuthority("Admin", "Superadmin").antMatchers("/article/**").hasAnyAuthority("User", "Superadmin")
