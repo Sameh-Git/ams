@@ -31,12 +31,22 @@ public class RoleController {
 		model.addAttribute("nbr", nbr);
 		return "role/listRoles";
 	}
-
+	@GetMapping("list2")
+	public String listRoles2(Model model) {
+		List<Role> roles = (List<Role>) roleRepository.findAll();
+		long nbr = roleRepository.count();
+		if (roles.size() == 0)
+			roles = null;
+		model.addAttribute("roles", roles);
+		model.addAttribute("nbr", nbr);
+		return "role/listRoles2";
+	}
 	@GetMapping("add")
 	public String showAddRoleForm() {
 
 		return "role/addRole";
 	}
+	
 
 	@PostMapping("add")
 	public String addRole(@RequestParam("role") String role) {
@@ -45,5 +55,18 @@ public class RoleController {
 		Role rSaved = roleRepository.save(r);
 		System.out.println("role = " + rSaved);
 		return "redirect:list";
+	}
+	@GetMapping("add2")
+	public String showAddRoleForm2() {
+
+		return "role/addRole2";
+	}
+	@PostMapping("add2")
+	public String addRole2(@RequestParam("role") String role) {
+		
+		Role r = new Role(role);
+		Role rSaved = roleRepository.save(r);
+		System.out.println("role = " + rSaved);
+		return "redirect:list2";
 	}
 }
