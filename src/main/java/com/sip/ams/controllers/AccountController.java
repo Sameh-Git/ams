@@ -51,6 +51,19 @@ public class AccountController {
 		model.addAttribute("roles", roleRepository.findAll());
 		return "user/listUsers";
 	}
+	@GetMapping("list2")
+	public String listUsers2(Model model) {
+
+		List<User> users = (List<User>) userRepository.findAll();
+		long nbr = userRepository.count();
+		if (users.size() == 0)
+			users = null;
+		model.addAttribute("users", users);
+
+		model.addAttribute("nbr", nbr);
+		model.addAttribute("roles", roleRepository.findAll());
+		return "user/listUsers2";
+	}
 
 	@GetMapping("enable/{id}/{email}")
 	//@ResponseBody
